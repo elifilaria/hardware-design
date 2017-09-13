@@ -1,0 +1,66 @@
+Script started on Mon 11 Sep 2017 02:53:41 PM CDT
+rns203-7% cp ~cs241/hw/Sqrts.java .
+rns203-7% ls
+hw1A.out  sqrts.cpython-34.pyc  Sqrts.java
+rns203-7% cd ..
+rns203-7% ls
+hw1A.out     [0m[38;5;34msqrt1[0m   [38;5;34msqrts2[0m   Sqrts.class  Sqrts.java  sqrts.scm
+[38;5;27m__pycache__[0m  [38;5;34msqrts1[0m  sqrts.c  sqrts.cpp    sqrts.py
+rns203-7% lscd ..p ~cs241/hw/Sqrts.java .[11Gexit[Kcp ~cs241/hw/Sqrts.java .
+rns203-7% javac Sqrts.java
+/home/mscs/bin64/javac
+rns203-7% java Sqrts
+/home/mscs/bin64/java
+sqrt(n)
+--------
+0.0
+1.0
+1.4142135623730951
+1.7320508075688772
+2.0
+2.23606797749979
+rns203-7% ls
+hw1A.out     [0m[38;5;34msqrt1[0m   [38;5;34msqrts2[0m   Sqrts.class  Sqrts.java  sqrts.scm
+[38;5;27m__pycache__[0m  [38;5;34msqrts1[0m  sqrts.c  sqrts.cpp    sqrts.py
+rns203-7% cp ~cs241/hw/sqrts.py .
+rns203-7% python3 sqrts.py[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kcat sqrts.py
+# print square roots in Python language.  R. Brown, 9/2010 
+
+from math import sqrt
+
+print("sqrt(n)\n--------")
+
+for n in range(0, 6):
+    print(sqrt(n))
+rns203-7% python3 sqrts.py
+sqrt(n)
+--------
+0.0
+1.0
+1.4142135623730951
+1.7320508075688772
+2.0
+2.23606797749979
+rns203-7% ls
+hw1A.out     [0m[38;5;34msqrt1[0m   [38;5;34msqrts2[0m   Sqrts.class  Sqrts.java  sqrts.scm
+[38;5;27m__pycache__[0m  [38;5;34msqrts1[0m  sqrts.c  sqrts.cpp    sqrts.py
+rns203-7% cd __pycache__
+rns203-7% ls
+hw1A.out  sqrts.cpython-34.pyc  Sqrts.java
+rns203-7% python3 -m py
+/usr/bin/python3: No module named py
+rns203-7% compile sqrts.py[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kpython3 -m py[11Gls[Kcd __pycache__[11Gls[Kpython3 -m py[11G[Kpython3 -m py_compile sqrts.cpythn[Kon-34.pyc
+Sorry: TypeError: source code string cannot contain null bytes
+rns203-7% python3 -m py_compile sqrts.cpython-34.pyc[P[P[P[P[P[P[P[P[P[P[P[P[P[P
+sqrt(n)
+--------
+0.0
+1.0
+1.4142135623730951
+1.7320508075688772
+2.0
+2.23606797749979
+rns203-7% exit
+exit
+
+Script done on Mon 11 Sep 2017 02:57:55 PM CDT

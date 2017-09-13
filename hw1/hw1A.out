@@ -1,0 +1,178 @@
+/* print square roots in C++ language.  R. Brown, 9/2010 */
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+main()
+{
+  cout << "sqrt(n)" << endl << "--------" << endl;
+  for (int n=0;  n<=5;  n++)
+    cout << sqrt(n) << endl;
+  return 0;
+}
+
+sqrt(n)
+--------
+0
+1
+1.41421
+1.73205
+2
+2.23607
+
+
+/* print square roots in C language.  R. Brown, 9/2010 */
+
+#include <stdio.h>
+#include <math.h>
+
+main()
+{
+  int n;
+  printf("sqrt(n)\n--------\n");
+  for (n=0;  n<=5;  n++)
+    printf("%f\n", sqrt(n));
+  return 0;
+}
+
+sqrt(n)
+--------
+0.000000
+1.000000
+1.414214
+1.732051
+2.000000
+2.236068
+Script started on Mon 11 Sep 2017 02:42:29 PM CDT
+rns203-7% (+ 7 2)
++: Command not found.
+rns203-7% mzche[K[K[Kscheme
+Welcome to Racket v5.3.
+> (+ 7 2)
+9
+> (- 3 1)
+2
+> (- 3 100)
+-97
+> (* 1 2 3 4 5)
+120
+> (exit)
+rns203-7% exit
+exit
+
+Script done on Mon 11 Sep 2017 02:43:56 PM CDT
+Script started on Mon 11 Sep 2017 02:44:48 PM CDT
+rns203-7% cp ~cs241/hw/sqrts1[Kscm .
+cp: cannot stat ‘/home/users/cs241/hw/sqrtsscm’: No such file or directory
+rns203-7% cp ~cs241/hw/sqrtsscm .[1@.
+rns203-7% cat sqrts.scm
+;;; print square roots in Scheme language.  R. Brown, 9/2010
+
+(define print-sqrts
+  (lambda (n) ; print square roots from n to 5
+    (if (>  n 5) 'done
+	(begin 
+	  (display (sqrt n))
+	  (newline)
+	  (print-sqrts (+ n 1))))))
+
+(display "(sqrt n)")
+(newline)
+(display "----------")
+(newline)
+(print-sqrts 0)
+
+rns203-7% mzschee[Kme
+Welcome to Racket v5.3.
+> (define print-sqrts
+  (lambda (n) ; print square roots from n to 5
+    (if (>  n 5) 'done
+	(begin 
+	  (display (sqrt n))
+	  (newline)
+	  (print-sqrts (+ n 1))))))
+
+(display "(sqrt n)")
+(newline)
+(display "----------")
+(newline)
+(print-sqrts 0)
+> (sqrt n)> 
+> ----------> 
+> 0
+1
+1.4142135623730951
+1.7320508075688772
+2
+2.23606797749979
+done
+> (xit   exit)
+rns203-7% exit
+exit
+
+Script done on Mon 11 Sep 2017 02:47:52 PM CDT
+Script started on Mon 11 Sep 2017 03:00:42 PM CDT
+rns203-7% cp ~cs241/hw/sqrts.scm .
+rns203-7% ls
+hw1A.out     [0m[38;5;34msqrt1[0m   [38;5;34msqrts2[0m   Sqrts.class  Sqrts.java  sqrts.scm
+[38;5;27m__pycache__[0m  [38;5;34msqrts1[0m  sqrts.c  sqrts.cpp    sqrts.py
+rns203-7% mzscheme[K[K[K[K[K[K[K[KJAVA
+JAVA: Command not found.
+rns203-7% cp ~cs241/hw/Sqrts.java .
+rns203-7% javac Sqrts.java
+/home/mscs/bin64/javac
+rns203-7% ls
+hw1A.out     [0m[38;5;34msqrt1[0m   [38;5;34msqrts2[0m   Sqrts.class  Sqrts.java  sqrts.scm
+[38;5;27m__pycache__[0m  [38;5;34msqrts1[0m  sqrts.c  sqrts.cpp    sqrts.py
+rns203-7% java Sc[Kqrts
+/home/mscs/bin64/java
+sqrt(n)
+--------
+0.0
+1.0
+1.4142135623730951
+1.7320508075688772
+2.0
+2.23606797749979
+rns203-7% ls
+hw1A.out     [0m[38;5;34msqrt1[0m   [38;5;34msqrts2[0m   Sqrts.class  Sqrts.java  sqrts.scm
+[38;5;27m__pycache__[0m  [38;5;34msqrts1[0m  sqrts.c  sqrts.cpp    sqrts.py
+rns203-7% PYTHON
+PYTHON: Command not found.
+rns203-7% cs [Kp ~cs241/hwsqrts.py .
+cp: cannot stat ‘/home/users/cs241/hwsqrts.py’: No such file or directory
+rns203-7% python3 sqrts.py
+sqrt(n)
+--------
+0.0
+1.0
+1.4142135623730951
+1.7320508075688772
+2.0
+2.23606797749979
+rns203-7% python3 -m py_compile sqrts.py
+rns203-7% python3 [K[K[K[K[K[K[Kls
+hw1A.out     [0m[38;5;34msqrt1[0m   [38;5;34msqrts2[0m   Sqrts.class  Sqrts.java  sqrts.scm
+[38;5;27m__pycache__[0m  [38;5;34msqrts1[0m  sqrts.c  sqrts.cpp    sqrts.py
+rns203-7% cd __pych[Kache__
+rns203-7% ls
+hw1A.out  sqrts.cpython-34.pyc  Sqrts.java
+rns203-7% python3 sqrts.cpython-34.pyc
+sqrt(n)
+--------
+0.0
+1.0
+1.4142135623730951
+1.7320508075688772
+2.0
+2.23606797749979
+rns203-7% cd ..
+rns203-7% ls
+hw1A.out     [0m[38;5;34msqrt1[0m   [38;5;34msqrts2[0m   Sqrts.class  Sqrts.java  sqrts.scm
+[38;5;27m__pycache__[0m  [38;5;34msqrts1[0m  sqrts.c  sqrts.cpp    sqrts.py
+rns203-7% exit
+exit
+
+Script done on Mon 11 Sep 2017 03:03:53 PM CDT
