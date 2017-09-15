@@ -6,10 +6,11 @@
 using namespace std;
 
 long factorial(int n){
-long ans = 1;
-for (int i=1; i<=n; ++i){
-  return n*factorial(n-1);
- }}
+  long ans = 1;
+  for (int i=1; i<=n; ++i)
+     ans = ans*i;
+  return ans;
+ }
 int main()
 {
   cout << "n\tn!" << endl << "----------------" << endl;
