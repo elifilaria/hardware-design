@@ -125,7 +125,7 @@ gettrans:
     ADD     BX,2
     MOVB    CL,(BX)
     MOVB    (outchar),CL !copy third char into outchar
-    MOV     AX,1 !make return value1
+    MOV     AX,1 !make return value 1
     JMP     2f
 
 1:  MOV     AX,0
@@ -143,60 +143,60 @@ translate:
     MOV     BX, 4(BP)
 
 
-    MOV     DX, (inword)
+    MOV     DX, (inword) !initialize DX as inword (1 if inside a word, 0 if otside)
 
-1:  CMPB    (BX),0
+1:  CMPB    (BX),0 !check if first character is nullbyte
     JE      9f
 
-2:  CMPB     (BX),'A'
+2:  CMPB     (BX),'A' !check if the input is a upper or lower case character
     JL       4f
     CMPB     (BX),'z'
     JG       4f
     INC      (charcount)
-    CMP      DX,0
+    CMP      DX,0 !check if inside a word
     JNE      3f
-    INC     (wordcount)
+    INC     (wordcount) !if was not in a word and encountererd a character increment wordcount
 
     
-3:  MOV     DX,1             
+3:  MOV     DX,1            !set DX to 1 meaning that we are now inside a word  
     JMP     5f
 
 4:  MOV     DX,0
 
 5:  CMPB    (BX),'\n'
     JNE     6f 
-    INC     (linecount)
+    INC     (linecount) !if newline increment linecount
 
-6:  MOVB    AL,(inchar)
-    CMPB    (BX),AL
+6:  MOVB    AL,(inchar) !copy inchar to AL
+    CMPB    (BX),AL !if AL not equal to BX do not switch the character
     JNE     7f
-    MOVB    AL,(outchar)
+    MOVB    AL,(outchar) !if it is switch inchar character with outchar character
     MOVB    (BX),AL
-    INC     (changedchar)
-    INC     BX
+    INC     (changedchar) !every time you switch, increment the counter for changedchar
+    INC     BX !check next character
     JMP     2b
 
 7:  CMPB    (BX), '\n'
     JE      8f
 
-8:  INC     BX
+8:  INC     BX !check next character
     JMP     1b
 
 
-9:  MOV     (inword), DX
+9:  MOV     (inword), DX !set DX to inword to keep track of whether you are inside or outside of a word in case you run out of BUFFSIZE
     SUB     BX, 4(BP)
-    MOV     AX, BX
-    POP     DX
+    MOV     AX, BX !set return value
+    POP     DX !clean up registers
     POP     CX
     POP     BP
     POP     BX
-    RET
+    RET !return AX
 
 
 print_summary:
-    PUSH endpr2-prompt2
+    PUSH endpr2-prompt2 !push prompt2
     PUSH prompt2
-    PUSH _STDERR
+    PUSH _STDERR !on standard error
     PUSH _WRITE
     SYS
     ADD SP,8
